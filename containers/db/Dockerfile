@@ -7,7 +7,7 @@ COPY ./ ${WORKDIR}/
 # Copy and prepare the entry point
 RUN mv ${WORKDIR}/db-entrypoint.sh /usr/local/bin/
 RUN ln -s usr/local/bin/db-entrypoint.sh /
-RUN chmod a+x db-entrypoint.sh
+RUN chmod a+x /usr/local/bin/db-entrypoint.sh
 
 # Execute the entrypoint
 ENTRYPOINT ["db-entrypoint.sh"]

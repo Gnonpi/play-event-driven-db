@@ -8,7 +8,6 @@ COPY events/ ${WORKDIR}/events/
 RUN cd ${WORKDIR} && \
     pip3 install --upgrade pip && \
     pip3 install poetry && \
-    pwd && ls && \
     poetry install --no-dev
 
 EXPOSE 8000

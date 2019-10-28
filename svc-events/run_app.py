@@ -1,8 +1,3 @@
-from flask import Flask
+from events.app import create_app
 
-application = Flask(__name__)
-
-
-@application.route(rule='/hello')
-def route_hello():
-    return 'Hello!', 200
+application = create_app()
