@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  db:
+    build:
+      context: migrations
+      dockerfile: ../containers/db/Dockerfile
+    container_name: svc-event-db
+    environment:
+      POSTGRES_USER: gnon
+      POSTGRES_DB: gnon_db
+      POSTGRES_PASSWORD: super-secret-password
+
+  web:
+    build:
+      context: svc-events
+      dockerfile: ../containers/web/Dockerfile
+    container_name: svc-event-web
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
